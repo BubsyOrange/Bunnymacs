@@ -687,7 +687,7 @@ LSP support for Emacs.
 (require 'eglot)
 (add-hook 'c-mode-hook 'eglot-ensure)
 (add-hook 'c++-mode-hook 'eglot-ensure)
-(add-to-list 'eglot-server-programs '((c-mode c++-mode) "clangd-15"))
+(add-to-list 'eglot-server-programs '((c-mode c++-mode) "clangd-16"))
 #+end_src
 
 ** Elixir
