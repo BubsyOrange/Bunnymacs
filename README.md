@@ -1,2 +1,0 @@
-# Bunnymacs
-My Emacs config.
