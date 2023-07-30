@@ -50,8 +50,8 @@
 - [[#programming-support][PROGRAMMING SUPPORT]]
   - [[#yasnippet][Yasnippet]]
   - [[#eldoc][Eldoc]]
-  - [[#eglot][Eglot]]
-  - [[#corfu][Corfu]]
+  - [[#lsp-mode][LSP Mode]]
+  - [[#company][Company]]
   - [[#c--c][C & C++]]
   - [[#elixir][Elixir]]
   - [[#gdscript][GDScript]]
@@ -651,43 +651,46 @@ Display documentation.
   :hook (after-init . global-eldoc-mode))
 #+end_src
 
-** Eglot
+** LSP Mode
 LSP support for Emacs.
 
 #+begin_src emacs-lisp
-(use-package eglot)
+(use-package lsp-mode
+  :commands lsp)
+
+(use-package lsp-ui
+  :commands lsp-ui-mode)
+
+;; Ivy support for LSP Mode
+(use-package lsp-ivy
+  :commands lsp-ivy-workspace-symbol)
 #+end_src
 
-** Corfu
+** Company
+Provides us with completitons
+
 #+begin_src emacs-lisp
-(use-package corfu
-  :after eglot
+(use-package company
+  :after lsp-mode
+  :config
+  (company-keymap--unbind-quick-access company-active-map)
+  (setq company-dabbrev-other-buffers t
+        company-dabbrev-code-other-buffers t)
   :custom
-  (corfu-cycle t)                ;; Allows cycling through candidates
-  (corfu-auto t)                 ;; Enable auto completion
-  (corfu-auto-prefix 2)          ;; Enable auto completion
-  (corfu-auto-delay 0.0 t)       ;; Enable auto completion
-  (corfu-quit-at-boundary 'separator)
-  (corfu-separator ?\s)          ;; Orderless field separator
-  :bind (:map corfu-map
-              ("TAB" . corfu-next)
-	          ([tab] . corfu-next)
-	          ("S-TAB" . corfu-previous)
-	          ([backtab] . corfu-previous))
-  :hook ((prog-mode . corfu-mode)
-          (org-mode . corfu-mode)
-          (corfu-mode . yas-minor-mode)
-          (eglot . corfu-mode))
-  :init
-  (global-corfu-mode))
+  (company-minimum-prefix-length 1)
+  (company-idle-delay 0.1)
+  :hook ((text-mode . company-mode)
+         (prog-mode . company-mode)
+         (org-mode . company-mode)
+         (company-mode . yas-minor-mode)
+         (lsp-mode . company-mode)))
+
+(add-hook 'after-init-hook 'global-company-mode)
 #+end_src
 
 ** C & C++
 #+begin_src emacs-lisp
-(require 'eglot)
-(add-hook 'c-mode-hook 'eglot-ensure)
-(add-hook 'c++-mode-hook 'eglot-ensure)
-(add-to-list 'eglot-server-programs '((c-mode c++-mode) "clangd-16"))
+
 #+end_src
 
 ** Elixir
@@ -723,17 +726,11 @@ LSP support for Emacs.
 
 ** LaTeX
 #+begin_src emacs-lisp
-(require 'eglot)
-(add-hook 'tex-mode-hook 'eglot-ensure)
-(add-to-list 'eglot-server-programs '(tex-mode "~/.local/bin/texlab"))
 #+end_src
 
 ** Lua
 #+begin_src emacs-lisp
 (use-package lua-mode)
-(require 'eglot)
-(add-hook 'lua-mode-hook 'eglot-ensure)
-(add-to-list 'eglot-server-programs '(lua-mode "/home/linuxbrew/.linuxbrew/bin/lua-language-server"))
 #+end_src
 
 ** Markdown
@@ -749,17 +746,11 @@ LSP support for Emacs.
 ** Python
 #+begin_src emacs-lisp
 (use-package python-mode)
-(require 'eglot)
-(add-hook 'python-mode-hook 'eglot-ensure)
-(add-to-list 'eglot-server-programs '(python-mode "~/.local/bin/jedi-language-server"))
 #+end_src
 
 ** Rust
 #+begin_src emacs-lisp
 (use-package rust-mode)
-(require 'eglot)
-(add-hook 'rust-mode-hook 'eglot-ensure)
-(add-to-list 'eglot-server-programs '(rust-mode "~/.local/bin/rust-analyzer"))
 #+end_src
 
 ** Scala
