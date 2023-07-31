@@ -53,7 +53,6 @@
   - [[#flycheck][Flycheck]]
   - [[#lsp-mode][LSP Mode]]
   - [[#company][Company]]
-  - [[#c--c][C & C++]]
   - [[#elixir][Elixir]]
   - [[#gdscript][GDScript]]
   - [[#go][Go]]
@@ -681,18 +680,29 @@ Provides us with completitons
 #+begin_src emacs-lisp
 (use-package company
   :after lsp-mode
+  :bind
+  (:map company-active-map
+        ("<tab>" . company-complete-selection))
+  (:map lsp-mode-map
+        ("<tab>" . company-indent-or-complete-common))
   :config
   (company-keymap--unbind-quick-access company-active-map)
   (setq company-dabbrev-other-buffers t
-        company-dabbrev-code-other-buffers t)
+        company-dabbrev-code-other-buffers t
+        company-format-margin-function nil)
   :custom
   (company-minimum-prefix-length 1)
-  (company-idle-delay 0.1)
+  (company-idle-delay 0.0)
   :hook ((text-mode . company-mode)
          (prog-mode . company-mode)
          (org-mode . company-mode)
          (company-mode . yas-minor-mode)
          (lsp-mode . company-mode)))
+
+(use-package company-box
+  :hook (company-mode . company-box-mode)
+  :config
+  (setq company-box-max-candidates 50))
 
 (add-hook 'after-init-hook 'global-company-mode)
 #+end_src
