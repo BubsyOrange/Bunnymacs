@@ -707,11 +707,6 @@ Provides us with completitons
          (company-mode . yas-minor-mode)
          (lsp-mode . company-mode)))
 
-(use-package company-box
-  :hook (company-mode . company-box-mode)
-  :config
-  (setq company-box-max-candidates 50))
-
 (add-hook 'after-init-hook 'global-company-mode)
 #+end_src
 
