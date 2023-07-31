@@ -50,6 +50,7 @@
 - [[#programming-support][PROGRAMMING SUPPORT]]
   - [[#yasnippet][Yasnippet]]
   - [[#eldoc][Eldoc]]
+  - [[#flycheck][Flycheck]]
   - [[#lsp-mode][LSP Mode]]
   - [[#company][Company]]
   - [[#c--c][C & C++]]
@@ -273,7 +274,6 @@ one, an error is signaled."
       (select-window other-win))))
 #+end_src
 
-
 * DASHBOARD
 #+begin_src emacs-lisp
 (use-package dashboard
@@ -481,7 +481,7 @@ Make Emacs look a little better.
 
 (use-package ivy
   :bind
-  ;; ivy-resume resumes the last Ivy-based completion.
+ ;; ivy-resume resumes the last Ivy-based completion.
   (("C-c C-r" . ivy-resume)
    ("C-x B" . ivy-switch-buffer-other-window))
   :diminish
@@ -624,7 +624,6 @@ Use Doom Modeline as the default modeline.
    "o a"   '(org-agenda :wk "Org agenda"))
 #+end_src
 
-
 * PROGRAMMING SUPPORT
 ** Yasnippet
 Snippets.
@@ -653,6 +652,14 @@ Display documentation.
   :hook (after-init . global-eldoc-mode))
 #+end_src
 
+** Flycheck
+Syntax checking.
+
+#+begin_src emacs-lisp
+(use-package flycheck
+  :diminish
+  :init (global-flycheck-mode))
+#+end_src
 ** LSP Mode
 LSP support for Emacs.
 
@@ -690,11 +697,6 @@ Provides us with completitons
 (add-hook 'after-init-hook 'global-company-mode)
 #+end_src
 
-** C & C++
-#+begin_src emacs-lisp
-
-#+end_src
-
 ** Elixir
 #+begin_src emacs-lisp
 (use-package elixir-mode)
@@ -723,7 +725,6 @@ Provides us with completitons
 ** Julia
 #+begin_src emacs-lisp
 (use-package julia-mode)
-(use-package eglot-jl)
 #+end_src
 
 ** LaTeX
@@ -752,7 +753,7 @@ Provides us with completitons
 
 ** Rust
 #+begin_src emacs-lisp
-(use-package rust-mode)
+(use-package rustic)
 #+end_src
 
 ** Scala
