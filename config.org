@@ -39,6 +39,7 @@
 - [[#ivy-counselswiper][IVY (COUNSEL/SWIPER)]]
   - [[#ivy-configuration][Ivy Configuration]]
   - [[#m-x-improvements][M-x Improvements]]
+- [[#magit][MAGIT]]
 - [[#modeline][MODELINE]]
 - [[#org-mode][ORG MODE]]
   - [[#basic-org-settings][Basic Org Settings]]
@@ -516,6 +517,13 @@ Removes the annoying '^' when using 'counsel-M-x'.
 (setq ivy-initial-inputs-alist nil)
 #+end_src
 
+* MAGIT
+Git intergation for Emacs.
+
+#+begin_src emacs-lisp
+(use-package magit)
+#+end_src
+
 * MODELINE
 Use Doom Modeline as the default modeline.
 
@@ -523,7 +531,7 @@ Use Doom Modeline as the default modeline.
 (use-package doom-modeline
   :init (doom-modeline-mode 1)
   :config
-  (setq doom-modeline-bar-width 4
+  (setq doom-modeline-bar-width 5
         doom-modeline-height 30 
         doom-modeline-icon t))
 #+end_src
