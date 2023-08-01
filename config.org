@@ -60,6 +60,7 @@
   - [[#haskell][Haskell]]
   - [[#json][JSON]]
   - [[#julia][Julia]]
+  - [[#lisp][Lisp]]
   - [[#lua][Lua]]
   - [[#markdown][Markdown]]
   - [[#php][PHP]]
@@ -666,6 +667,7 @@ Syntax checking.
   :diminish
   :init (global-flycheck-mode))
 #+end_src
+
 ** LSP Mode
 LSP support for Emacs.
 
@@ -737,6 +739,14 @@ Provides us with completitons
 ** Julia
 #+begin_src emacs-lisp
 (use-package julia-mode)
+#+end_src
+
+** Lisp
+#+begin_src emacs-lisp
+(use-package sly
+  :config
+  (setq inferior-lisp-program "/usr/bin/sbcl") ;; Make sure SBCL is installed
+  (setq sly-contribs '(sly-fancy)))
 #+end_src
 
 ** Lua
