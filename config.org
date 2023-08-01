@@ -673,7 +673,9 @@ LSP support for Emacs.
 
 #+begin_src emacs-lisp
 (use-package lsp-mode
-  :commands (lsp lsp-deferred))
+  :commands (lsp lsp-deferred)
+  :custom
+  (lsp-prefer-flymake nil))
 
 (use-package lsp-ui
   :commands lsp-ui-mode)
@@ -751,7 +753,8 @@ Provides us with completitons
 
 ** Lua
 #+begin_src emacs-lisp
-(use-package lua-mode)
+(use-package lua-mode
+  :hook (lua-mode . lsp-deferred))
 #+end_src
 
 ** Markdown
