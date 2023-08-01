@@ -766,7 +766,10 @@ Provides us with completitons
 
 ** Python
 #+begin_src emacs-lisp
-(use-package python-mode)
+(use-package lsp-jedi
+  :hook (python-mode . (lambda () (require 'lsp-jedi) (lsp)))
+  :init (when (executable-find "python3")
+         (setq lsp-jedi-python-executable-cmd "python3")))
 #+end_src
 
 ** Rust
