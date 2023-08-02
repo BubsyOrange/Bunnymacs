@@ -67,6 +67,7 @@
   - [[#python][Python]]
   - [[#rust][Rust]]
   - [[#scala][Scala]]
+  - [[#typescript][Typescript]]
   - [[#web][Web]]
   - [[#yaml][YAML]]
 - [[#projectile][PROJECTILE]]
@@ -693,6 +694,8 @@ Provides us with completitons
   :after lsp-mode
   :bind
   (:map company-active-map
+        ("C-n" . company-select-next)
+        ("C-p" . company-select-previous)
         ("<tab>" . company-complete-selection))
   (:map lsp-mode-map
         ("<tab>" . company-indent-or-complete-common))
@@ -795,6 +798,15 @@ Provides us with completitons
 ** Scala
 #+begin_src emacs-lisp
 (use-package scala-mode)
+#+end_src
+
+** Typescript
+#+begin_src emacs-lisp
+(use-package typescript-mode
+  :mode "\\.ts\\'"
+  :hook (typescript-mode . lsp-deferred)
+  :config
+  (setq typescript-indent-level 2))
 #+end_src
 
 ** Web
