@@ -54,6 +54,7 @@
   - [[#flycheck][Flycheck]]
   - [[#lsp-mode][LSP Mode]]
   - [[#company][Company]]
+  - [[#clojure][Clojure]]
   - [[#elixir][Elixir]]
   - [[#gdscript][GDScript]]
   - [[#go][Go]]
@@ -695,11 +696,11 @@ Provides us with completitons
   :after lsp-mode
   :bind
   (:map company-active-map
-        ("C-n" . company-select-next)
-        ("C-p" . company-select-previous)
+        ("C-j" . company-select-next)
+        ("C-k" . company-select-previous)
         ("<tab>" . company-complete-selection))
   (:map lsp-mode-map
-        ("<tab>" . company-complete-common-or-cycle))
+        ("<tab>" . company-indent-or-complete-common))
   :config
   (company-keymap--unbind-quick-access company-active-map)
   (setq company-dabbrev-other-buffers t
@@ -715,6 +716,11 @@ Provides us with completitons
          (lsp-mode . company-mode)))
 
 (add-hook 'after-init-hook 'global-company-mode)
+#+end_src
+
+** Clojure
+#+begin_src emacs-lisp
+(use-package clojure-mode)
 #+end_src
 
 ** Elixir
