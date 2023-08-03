@@ -67,6 +67,7 @@
   - [[#python][Python]]
   - [[#rust][Rust]]
   - [[#scala][Scala]]
+  - [[#toml][TOML]]
   - [[#typescript][Typescript]]
   - [[#web][Web]]
   - [[#yaml][YAML]]
@@ -374,7 +375,7 @@ Dired is the main file-explorer in Emacs.
 #+begin_src emacs-lisp
 (bo/leader-keys
   "SPC" '(counsel-M-x :wk "M-x")
-  "f f"   '(find-file :wk "Find file")
+  "f f" '(find-file :wk "Find file")
   "f r" '(counsel-recentf :wk "Recent files")
   "f s" '(save-buffer :wk "Save file")
   "f C" '(copy-file :wk "Copy file")
@@ -482,7 +483,7 @@ Make Emacs look a little better.
 
 (use-package ivy
   :bind
- ;; ivy-resume resumes the last Ivy-based completion.
+;; ivy-resume resumes the last Ivy-based completion.
   (("C-c C-r" . ivy-resume)
    ("C-x B" . ivy-switch-buffer-other-window))
   :diminish
@@ -698,7 +699,7 @@ Provides us with completitons
         ("C-p" . company-select-previous)
         ("<tab>" . company-complete-selection))
   (:map lsp-mode-map
-        ("<tab>" . company-indent-or-complete-common))
+        ("<tab>" . company-complete-common-or-cycle))
   :config
   (company-keymap--unbind-quick-access company-active-map)
   (setq company-dabbrev-other-buffers t
@@ -798,6 +799,11 @@ Provides us with completitons
 ** Scala
 #+begin_src emacs-lisp
 (use-package scala-mode)
+#+end_src
+
+** TOML
+#+begin_src emacs-lisp
+(use-package toml-mode)
 #+end_src
 
 ** Typescript
@@ -1000,7 +1006,7 @@ The theme that I use for Emacs is Catppuccin. But, feel free to add your own!
 #+begin_src emacs-lisp
 (use-package which-key
   :init
-    (which-key-mode 1)
+  (which-key-mode 1)
   :diminish
   :config
   (setq which-key-side-window-location 'bottom
