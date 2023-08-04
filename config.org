@@ -707,7 +707,7 @@ Provides us with completitons
         company-dabbrev-code-other-buffers t
         company-format-margin-function nil)
   :custom
-  (company-minimum-prefix-length 1)
+  (company-minimum-prefix-length 2)
   (company-idle-delay 0.0)
   :hook ((text-mode . company-mode)
          (prog-mode . company-mode)
