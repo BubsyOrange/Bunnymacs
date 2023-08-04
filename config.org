@@ -720,7 +720,8 @@ Provides us with completitons
 
 ** Clojure
 #+begin_src emacs-lisp
-(use-package clojure-mode)
+(use-package clojure-mode
+  :hook (clojure-mode . lsp-deferred))
 #+end_src
 
 ** Elixir
