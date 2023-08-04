@@ -535,7 +535,8 @@ Use Doom Modeline as the default modeline.
   :init (doom-modeline-mode 1)
   :config
   (setq doom-modeline-bar-width 5
-        doom-modeline-height 30 
+        doom-modeline-height 35
+        doom-modeline-major-mode-icon nil 
         doom-modeline-icon t))
 #+end_src
 
