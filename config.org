@@ -525,6 +525,11 @@ Git intergation for Emacs.
 
 #+begin_src emacs-lisp
 (use-package magit)
+
+(bo/leader-keys
+  "g" '(:ignore t :wk "Magit")
+  ;; Magit commands
+  "g s" '(magit :wk "Magit Status"))
 #+end_src
 
 * MODELINE
@@ -536,8 +541,7 @@ Use Doom Modeline as the default modeline.
   :config
   (setq doom-modeline-bar-width 5
         doom-modeline-height 35
-        doom-modeline-major-mode-icon nil 
-        doom-modeline-icon t))
+        doom-modeline-major-mode-icon nil))
 #+end_src
 
 * ORG MODE
