@@ -524,7 +524,9 @@ Removes the annoying '^' when using 'counsel-M-x'.
 Git intergation for Emacs.
 
 #+begin_src emacs-lisp
-(use-package magit)
+(use-package magit
+  :config
+  (setq magit-push-always-verify nil))
 
 (bo/leader-keys
   "g" '(:ignore t :wk "Magit")
@@ -936,7 +938,7 @@ Eshell is Emacs' very own "shell" written in Elisp.
 #+begin_src emacs-lisp
 (use-package vterm
   :config
-  (setq shell-file-name "/usr/bin/fish"))
+  (setq shell-file-name "/usr/bin/zsh"))
 #+end_src
 
 ** Vterm Toggle
