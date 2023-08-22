@@ -6,8 +6,8 @@
 - [[#important-programs-to-load-first][IMPORTANT PROGRAMS TO LOAD FIRST]]
   - [[#adding-the-scripts-directory-to-path][Adding the scripts directory to path]]
   - [[#sourcing-the-scripts][Sourcing the scripts]]
-- [[#evil-mode][EVIL MODE]]
-- [[#general-keybindings][GENERAL KEYBINDINGS]]
+  - [[#evil-mode][Evil Mode]]
+  - [[#general-keybindings][General Keybindings]]
 - [[#startup-performance][STARTUP PERFORMANCE]]
   - [[#garbage-collection][Garbage Collection]]
   - [[#native-compilation][Native Compilation]]
@@ -96,7 +96,7 @@
 (require 'buffer-move)          ;; Buffer-move for better window management
 #+end_src
 
-* EVIL MODE
+** Evil Mode
 #+begin_src emacs-lisp
 (use-package evil
     :init      ;; tweak evil's configuration before loading it
@@ -113,7 +113,7 @@
   (use-package evil-tutor)
 #+end_src
 
-* GENERAL KEYBINDINGS
+** General Keybindings
 #+begin_src emacs-lisp
 (use-package general
   :config
