@@ -159,7 +159,8 @@
 (bo/leader-keys
   "h" '(:ignore t :wk "Help")
   "h f" '(describe-function :wk "Describe function")
-  "h v" '(describe-variable :wk "Describe variable"))
+  "h v" '(describe-variable :wk "Describe variable")
+  "h r r" '(reload-init-file :wk "Reload emacs config"))
 
 (bo/leader-keys
   "t" '(:ignore t :wk "Toggle")
@@ -804,9 +805,6 @@ Provides us with completitons
   (interactive)
   (load-file user-init-file)
   (load-file user-init-file))
-
-(bo/leader-keys
-  "h r r" '(reload-init-file :wk "Reload emacs config"))
 #+end_src
 
 * SPLITS AND WINDOWS
