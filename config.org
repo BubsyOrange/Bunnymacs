@@ -154,7 +154,7 @@
 
 (bo/leader-keys
   "g" '(:ignore t :wk "Magit")
-  "g s" '(magit :wk "Magit Status"))
+  "g g" '(magit :wk "Magit Status"))
 
 (bo/leader-keys
   "h" '(:ignore t :wk "Help")
