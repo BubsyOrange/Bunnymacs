@@ -87,7 +87,7 @@
 * IMPORTANT PROGRAMS TO LOAD FIRST
 ** Adding the scripts directory to path
 #+begin_src emacs-lisp
-(add-to-list 'load-path "~/.emacs.d/scripts/")
+(add-to-list 'load-path "~/.config/emacs/scripts/")
 #+end_src
 
 ** Sourcing the scripts
@@ -654,9 +654,8 @@ Provides us with completitons
   :after lsp-mode
   :bind
   (:map company-active-map
-        ("C-j" . company-select-next)
-        ("C-k" . company-select-previous)
-        ("<tab>" . company-complete-selection))
+        ("<tab>" . company-select-next)
+        ("<backtab>" . company-select-previous))
   (:map lsp-mode-map
         ("<tab>" . company-indent-or-complete-common))
   :config
