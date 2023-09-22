@@ -80,7 +80,7 @@
   - [[#vterm-toggle][Vterm Toggle]]
 - [[#sudo-edit][SUDO EDIT]]
 - [[#theme][THEME]]
-- [[#treemacs] [TREEMACS]]
+- [[#treemacs][TREEMACS]]
 - [[#which-key][WHICH-KEY]]
 - [[#runtime-performance][RUNTIME PERFORMANCE]]
 
