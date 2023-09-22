@@ -236,7 +236,8 @@ Make Emacs load faster.
 ;; Silence compiler warnings as they can be pretty disruptive
 (if (boundp 'comp-deferred-compilation)
     (setq comp-deferred-compilation nil)
-    (setq native-comp-deferred-compilation nil))
+    (setq native-comp-deferred-compilation nil)
+    (setq native-comp-async-report-warnings-errors nil))
 ;; In noninteractive sessions, prioritize non-byte-compiled source files to
 ;; prevent the use of stale byte-code. Otherwise, it saves us a little IO time
 ;; to skip the mtime checks on every *.elc file.
@@ -256,7 +257,7 @@ Make Emacs load faster.
   (setq dashboard-set-heading-icons t) 
   (setq dashboard-set-file-icons t)
   (setq dashboard-banner-logo-title "B U N N Y M A C S")
-  (setq dashboard-startup-banner "~/.emacs.d/img/Bunnymacs.png")
+  (setq dashboard-startup-banner "~/.config/emacs/img/Bunnymacs.png")
   ;; (setq dashboard-startup-banner 'logo) ;; use standard emacs logo as banner
   (setq dashboard-center-content t) ;; set 'nil' to disable centered content
   (setq dashboard-items '((recents . 5)
