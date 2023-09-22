@@ -38,7 +38,6 @@
   - [[#m-x-improvements][M-x Improvements]]
 - [[#magit][MAGIT]]
 - [[#modeline][MODELINE]]
-- [[#neotree][NEOTREE]]
 - [[#org-mode][ORG MODE]]
   - [[#basic-org-settings][Basic Org Settings]]
   - [[#enable-table-of-contents][Enable Table of Contents]]
@@ -81,6 +80,7 @@
   - [[#vterm-toggle][Vterm Toggle]]
 - [[#sudo-edit][SUDO EDIT]]
 - [[#theme][THEME]]
+- [[#treemacs] [TREEMACS]]
 - [[#which-key][WHICH-KEY]]
 - [[#runtime-performance][RUNTIME PERFORMANCE]]
 
@@ -494,28 +494,6 @@ Use Doom Modeline as the default modeline.
         doom-modeline-major-mode-icon nil))
 #+end_src
 
-* NEOTREE
-#+begin_src emacs-lisp
-(use-package neotree
-  :config
-  (setq neo-smart-open t
-        neo-show-hidden-files t
-        neo-window-width 35
-        neo-window-fixed-size nil
-        inhibit-compacting-font-caches t
-        projectile-switch-project-action 'neotree-projectile-action) 
-        ;; truncate long file names in neotree
-        (add-hook 'neo-after-create-hook
-           #'(lambda (_)
-               (with-current-buffer (get-buffer neo-buffer-name)
-                 (setq truncate-lines t)
-                 (setq word-wrap nil)
-                 (make-local-variable 'auto-hscroll-mode)
-                 (setq auto-hscroll-mode nil)))))
-  ;; Set icons for Neotree
-  (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
-#+end_src
-
 * ORG MODE
 ** Basic Org Settings
 #+begin_src emacs-lisp
@@ -905,6 +883,11 @@ The theme that I use for Emacs is Catppuccin. But, feel free to add your own!
 (load-theme 'catppuccin t)
 (setq catppuccin-flavor 'latte) ;; Available options are 'frappe, 'latte, 'macchiato or 'mocha
 (catppuccin-reload) 
+#+end_src
+
+* TREEMACS
+#+begin_src emacs-lisp
+(use-package treemacs)
 #+end_src
 
 * WHICH-KEY
