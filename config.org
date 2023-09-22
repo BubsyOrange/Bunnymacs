@@ -164,9 +164,10 @@
 
 (bo/leader-keys
   "t" '(:ignore t :wk "Toggle")
-  "t e" '(eshell-toggle :wk "Toggle eshell")
-  "t n" '(neotree-toggle :wk "Toggle neotree file viewer")
-  "t v" '(vterm-toggle :wk "Toggle vterm"))
+  "t e" '(eshell-toggle :wk "Toggle Eshell")
+  "t t" '(treemacs :wk "Toggle Treemacs")
+  "t 1" '(treemacs-select-window :wk "Select Treemacs Window")
+  "t v" '(vterm-toggle :wk "Toggle Vterm"))
 
 (bo/leader-keys
   "m *"  '(org-ctrl-c-star :wk "Org-ctrl-c-star")
@@ -886,6 +887,11 @@ The theme that I use for Emacs is Catppuccin. But, feel free to add your own!
 #+end_src
 
 * TREEMACS
+|        COMMAND         |     DESCRIPTION        | KEYBINDING |
+|------------------------+------------------------+------------|
+| treemacs               | Toggle Treemacs        |   SPC t t  |
+| treemacs-select-window | Select Treemacs Window |   SPC t 1  |
+
 #+begin_src emacs-lisp
 (use-package treemacs)
 #+end_src
