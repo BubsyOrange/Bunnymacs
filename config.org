@@ -2,6 +2,8 @@
 #+AUTHOR: Bubsy Orange
 #+STARTUP: showeverything
 
+For the Doom Emacs version of Bunnymacs, click [[https://github.com/BubsyOrange/Bunnymacs-Doom][here]].
+
 * TABLE OF CONTENTS :TOC:
 - [[#important-programs-to-load-first][IMPORTANT PROGRAMS TO LOAD FIRST]]
   - [[#adding-the-scripts-directory-to-path][Adding the scripts directory to path]]
