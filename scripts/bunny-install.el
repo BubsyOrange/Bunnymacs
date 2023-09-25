@@ -16,4 +16,5 @@
 (straight-use-package 'use-package)
 (setq straight-use-package-by-default t)
 
-(provide 'straight-installer)
+(provide 'bunny-install)
+;; bunny-install.el ends here

@@ -67,5 +67,5 @@ one, an error is signaled."
       (set-window-buffer other-win buf-this-buf)
       (select-window other-win))))
 
-(provide 'buffer-move)
-;;; buffer-move.el ends here
+(provide 'bunny-buffer)
+;;; bunny-buffer.el ends here
